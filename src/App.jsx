@@ -1,10 +1,14 @@
-import Navigation from "./components/Navigation";
+import Login from "./components/login/Login";
+import Navigation from "./components/navigation/Navigation";
 
 function App() {
 
 
   return (
+    <>
     <Navigation />
+    <Login />
+    </>
   )
 }
 
