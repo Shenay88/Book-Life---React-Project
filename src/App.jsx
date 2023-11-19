@@ -1,6 +1,8 @@
 import Login from "./components/login/Login";
+import Catalog from "./components/catalog/Catalog";
 import Navigation from "./components/navigation/Navigation";
 import Register from "./components/register/Register";
+import './app.css'
 
 function App() {
 
@@ -10,6 +12,7 @@ function App() {
       <Navigation />
       <Login />
       <Register />
+      <Catalog /> 
     </>
   )
 }
