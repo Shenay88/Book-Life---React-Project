@@ -1,12 +1,10 @@
+import Navigation from "./components/Navigation";
 
 function App() {
 
 
   return (
-    
-    <>
-    <h1>Start</h1>
-    </>
+    <Navigation />
   )
 }
 
