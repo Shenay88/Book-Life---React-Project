@@ -6,7 +6,7 @@ export default function Login() {
             <div className="wrapper">
                 <div className="title"><span>Login Form</span></div>
                 <form action="#">
-                    <div className="row">
+                    <div className="row"> 
                         <i className="fas fa-user"></i>
                         <input type="text" placeholder="Email"  />
                     </div>
@@ -14,7 +14,7 @@ export default function Login() {
                         <i className="fas fa-lock"></i>
                         <input type="password" placeholder="Password"  />
                     </div>
-                    <div className="row button">
+                    <div className="row button"> 
                         <input type="submit" value="Login" />
                     </div>
                     <div className="signup-link">Not a member? <a href="#">Signup now</a></div>

@@ -1,6 +1,6 @@
 
 .container{
-  max-width: 440px;
+  max-width: 500px;
   padding: 0 20px;
   margin: 110px auto;
 }
@@ -59,8 +59,8 @@ form .row input::placeholder{
   align-items: center;
   justify-content: center;
 }
-.wrapper form .pass{
-  margin: -8px 0 20px 0;
+/* .wrapper form .pass{
+  margin: -8px 0 20px 0; 
 }
 .wrapper form .pass a{
   color: #16a085;
@@ -69,7 +69,7 @@ form .row input::placeholder{
 }
 .wrapper form .pass a:hover{
   text-decoration: underline;
-}
+} */
 .wrapper form .button input{
   color: #fff;
   font-size: 20px;
