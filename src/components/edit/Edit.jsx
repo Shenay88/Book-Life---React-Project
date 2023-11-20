@@ -6,12 +6,12 @@ export default function Edit() {
             <h1>Edit Book</h1>
             <div className="container">
 
-                <input type="text" name="name" className="title" placeholder="Title" />
-                <input type="text" name="image" className="image" placeholder="Image URL" />
+                <input type="text" name="name" className="title"  placeholder="Title"/>
+                <input type="text" name="image" className="image" placeholder="Image URL"/>
 
                 <div className="row">
                     <div className="half">
-                        <input type="number" name="year" className="year" placeholder='Year' />
+                        <input type="number" name="year" className="year" placeholder='Year'/>
                     </div>
 
                     <div className="half">
@@ -25,11 +25,7 @@ export default function Edit() {
 
                 <input name="text" className="description" placeholder='Description'></input>
 
-                <div className='buttons'>
-                    <input type="submit" value="Edit Book" />
-                    <input type="submit" value="Delete Book" />
-                </div>
-
+                <input type="submit" value="Edit Book" />
 
             </div>
         </form>
