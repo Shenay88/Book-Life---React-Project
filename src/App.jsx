@@ -3,7 +3,8 @@
 import Navigation from "./components/navigation/Navigation";
 // import Register from "./components/register/Register";
 import './app.css'
-import Edit from "./components/edit/Edit";
+import Details from "./components/details/Details";
+// import Edit from "./components/edit/Edit";
 // import Create from "./components/create/Create";
 
 function App() { 
@@ -16,7 +17,8 @@ function App() {
       {/* <Register /> */}
       {/* <Catalog /> */}
       {/* <Create /> */}
-      <Edit />
+      {/* <Edit /> */}
+      <Details />
     </>
   )
 }
