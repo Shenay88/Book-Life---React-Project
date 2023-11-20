@@ -3,7 +3,8 @@
 import Navigation from "./components/navigation/Navigation";
 // import Register from "./components/register/Register";
 import './app.css'
-import Create from "./components/create/Create";
+import Edit from "./components/edit/Edit";
+// import Create from "./components/create/Create";
 
 function App() { 
 
@@ -14,7 +15,8 @@ function App() {
       {/* <Login /> */}
       {/* <Register /> */}
       {/* <Catalog /> */}
-      <Create />
+      {/* <Create /> */}
+      <Edit />
     </>
   )
 }
