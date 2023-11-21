@@ -1,16 +1,17 @@
 
-.container{
+.registerContainer{
   max-width: 500px;
   padding: 0 20px;
   margin: 110px auto;
 }
-.wrapper{
+.register{
   width: 100%;
   background: #fff;
   border-radius: 5px;
   box-shadow: 0px 4px 10px 1px rgba(0,0,0,0.1);
-}
-.wrapper .title{
+  
+} 
+.register .registerTitle{
   height: 90px;
   background: #16a085;
   border-radius: 5px 5px 0 0;
@@ -21,15 +22,15 @@
   align-items: center;
   justify-content: center;
 }
-.wrapper form{
+.register form{
   padding: 30px 25px 25px 25px;
 }
-.wrapper form .row{
+.register form .row{
   height: 45px;
   margin-bottom: 15px;
   position: relative;
 }
-.wrapper form .row input{
+.register form .row input{
   height: 100%;
   width: 100%;
   outline: none;
@@ -46,7 +47,7 @@ form .row input:focus{
 form .row input::placeholder{
   color: #999;
 }
-.wrapper form .row i{
+.register form .row i{
   position: absolute;
   width: 47px;
   height: 100%;
@@ -59,18 +60,8 @@ form .row input::placeholder{
   align-items: center;
   justify-content: center;
 }
-/* .wrapper form .pass{
-  margin: -8px 0 20px 0; 
-}
-.wrapper form .pass a{
-  color: #16a085;
-  font-size: 17px;
-  text-decoration: none;
-}
-.wrapper form .pass a:hover{
-  text-decoration: underline;
-} */
-.wrapper form .button input{
+
+.register form .button input{
   color: #fff;
   font-size: 20px;
   font-weight: 500;
@@ -82,15 +73,15 @@ form .row input::placeholder{
 form .button input:hover{
   background: #12876f;
 }
-.wrapper form .signin-link{
+.register form .signin{
   text-align: center;
   margin-top: 20px;
   font-size: 17px;
 }
-.wrapper form .signin-link a{
+.register form .signin a{
   color: #16a085;
   text-decoration: none;
 }
-form .signin-link a:hover{
+form .signin a:hover{
   text-decoration: underline;
 } 

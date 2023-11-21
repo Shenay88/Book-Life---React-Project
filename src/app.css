@@ -6,9 +6,10 @@
     font-family: 'Poppins',sans-serif;
   }
 
-  #root{
+  #root{ 
     background: #1abc9c;
     overflow: hidden;
+    height: 100vh;
   }
 
 

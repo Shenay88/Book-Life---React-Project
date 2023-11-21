@@ -2,7 +2,7 @@ import './create.css';
 
 export default function Create() {
     return (
-        <form action="#" method="post">
+        <form className='createForm' action="#" method="post">
             <h1>Add Book</h1>
             <div className="container">
 

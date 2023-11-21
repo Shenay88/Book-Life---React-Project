@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import style from './Navigation.module.css'
 
 
@@ -12,12 +13,12 @@ export default function Navigation() {
             </label>
             <label className={style.title}>Book Life</label>
             <ul>
-                <li><a className={style.home} href="#">Home</a></li>
-                <li><a className={style.login} href="#">Login</a></li>
-                <li><a className={style.register} href="#">Register</a></li>
-                <li><a className={style.myBooks} href="#">My Books</a></li>
-                <li><a className={style.addBook} href="#">Add Book</a></li>
-                <li><a className={style.logout} href="#">Logout</a></li>
+                <li><Link className={style.home} to="/">Home</Link></li>
+                <li><Link className={style.login} to="/login">Login</Link></li>
+                <li><Link className={style.register} to="/register">Register</Link></li>
+                <li><Link className={style.myBooks} to="/myBook">My Books</Link></li>
+                <li><Link className={style.addBook} to="/addBook">Add Book</Link></li>
+                <li><Link className={style.logout} to="/logout">Logout</Link></li>
             </ul>
         </nav>
     
