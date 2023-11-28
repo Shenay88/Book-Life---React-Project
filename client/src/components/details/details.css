@@ -29,17 +29,26 @@
 }
 
 .bookInfo {
-    flex: 2;
+    flex: 3;
     display: flex;
     flex-direction: column;
     gap: 20px;
 }
 
-.bookDetails h1,
+.bookDetails .detailsTitle,
 .bookDetails h3,
 .bookDetails h4,
 .bookDetails p {
     margin-bottom: 15px;
+}
+
+.bookDetails p span{
+   font-weight: bold;
+}
+
+
+.bookDetails .detailsTitle {
+    font-size:26px;
 }
 
 .actionBtn {

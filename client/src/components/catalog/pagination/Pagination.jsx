@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, Outlet } from 'react-router-dom';
 import './pagination.css';
 
 export default function Pagination({ booksPerPage, allBooksLength, currentPage, paginate }) {
@@ -10,14 +10,23 @@ export default function Pagination({ booksPerPage, allBooksLength, currentPage, 
     }
 
     return (
-        <nav className="navPagination">
-            <ul className='pagination'> 
-                {pageNumbers.map(page => (
-                    <li key={page} className='page' onClick={() => paginate(page)}>
-                        <Link to="/" className='currentPage'> {page} </Link>
-                    </li>
-                ))}
-            </ul>
-        </nav>
+        <>
+            <nav className="navPagination">
+                <div className='pagination'>
+                    {pageNumbers.map(page => (
+                        <Link
+                            key={page}
+                            className='page'
+                            onClick={() => paginate(page)}
+                            to={`books?page=${page}`}
+                        >
+                            {page}
+                        </Link>
+                    ))}
+                </div>
+            </nav>
+
+            <Outlet />
+        </>
     );
 }

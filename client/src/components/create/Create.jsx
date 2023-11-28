@@ -17,6 +17,7 @@ export default function Create() {
 
             // We get an object with all the data from the server, _id included
             const newBook = await createBook(bookData);
+            console.log(newBook)
             navigate('/');
 
         } catch (error) {
@@ -29,7 +30,7 @@ export default function Create() {
 
     return (
         <form className='createForm' onSubmit={createBookSubmitHandler}>
-            <h1>Add Book</h1>
+            <h1 className='creareTitle'>Add Book</h1>
             <div className="container">
 
                 <input type="text" name="title" className="title" placeholder="Title" />
@@ -49,7 +50,7 @@ export default function Create() {
                     </div>
                 </div>
 
-                <textarea name="text" className="description" placeholder='Description'></textarea>
+                <textarea name="description" className="description" placeholder='Description'></textarea>
 
                 <input type="submit" value="Add Book" />
 

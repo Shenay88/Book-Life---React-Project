@@ -8,6 +8,14 @@ export const getAllBooks = async () => {
     return Object.values(getAllBooks);
 }
 
+export const getBookById = async(bookId) => {
+
+    const getBook = await fetch(`${baseUrl}/${bookId}`);
+    const book = await getBook.json();
+
+    return book;
+}
+
 export const createBook = async (bookData) => {
     const bookReq = await fetch(baseUrl, {
         method: 'POST',

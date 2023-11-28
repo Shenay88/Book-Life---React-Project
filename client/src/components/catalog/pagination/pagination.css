@@ -22,7 +22,7 @@
     align-items: center;
 }
 
-.pagination .page a.currentPage {
+.pagination .page {
     text-decoration: none;
     color: white;
 

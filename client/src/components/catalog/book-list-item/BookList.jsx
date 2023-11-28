@@ -1,5 +1,7 @@
+import { Link } from "react-router-dom";
 
 export default function BookList({
+    _id,
     title,
     type,
     img
@@ -9,7 +11,7 @@ export default function BookList({
             <h3>{title} </h3>
             <p>Type: {type}</p>
             <p className='img'><img className="bookLiImg" src={img} alt={title} /></p>
-            <a className='button' href="/details">Details</a>
+            <Link to={`/books/details/${_id}`} className='button'>Details</Link>
         </div>
     )
 }

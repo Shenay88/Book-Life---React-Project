@@ -4,7 +4,7 @@ import { getAllBooks } from '../../services/bookService';
 import BookList from './book-list-item/BookList';
 import Pagination from './pagination/Pagination';
 
-const BOOKS_PER_PAGE = 5
+const BOOKS_PER_PAGE = 4;
 
 export default function Catalog() {
     const [books, setBooks] = useState([]);
@@ -40,6 +40,7 @@ export default function Catalog() {
                 allBooksLength={books.length}
                 currentPage={currentPage}
                 paginate={paginate}
+                
             />
 
         </section>
