@@ -1,33 +1,47 @@
-import styles from './Catalog.module.css'
+import { useEffect, useState } from 'react';
+import './catalog.css'
+import { getAllBooks } from '../../services/bookService';
+import BookList from './book-list-item/BookList';
+import Pagination from './pagination/Pagination';
+
+const BOOKS_PER_PAGE = 5
 
 export default function Catalog() {
+    const [books, setBooks] = useState([]);
+    const [currentPage, setCurrentPage] = useState(1);
+
+
+    useEffect(() => {
+        getAllBooks()
+            .then(allBooks => setBooks(allBooks));
+    }, []);
+
+    const indexOfLastBook = currentPage * BOOKS_PER_PAGE; //1 * 5
+    const indexOfFirstBook = indexOfLastBook - BOOKS_PER_PAGE; // 5 - 5
+    const currentBooks = books.slice(indexOfFirstBook, indexOfLastBook); // 0, 5
+
+    const paginate = pageNumber => setCurrentPage(pageNumber);
 
     return (
-        <section className={styles.dashboard}>
-            <div className={styles.booksList}>
-                <div className={styles.bookLi}>
-                    <h3>Charlie and the Chocolate Factory </h3>
-                    <p>Type: Fiction</p>
-                    <p className={styles.img}><img src="https://m.media-amazon.com/images/I/51hxjozCakL._SY445_SX342_.jpg" alt='' /></p>
-                    <a className={styles.button} href="/details">Details</a>
-                </div>
+        <section className='dashboard'>
+            <div className='booksList'>
 
-                <div className={styles.bookLi}>
-                    <h3>The Power Of Positive Thinking</h3>
-                    <p>Type: Motivational</p>
-                    <p className={styles.img}><img src="https://m.media-amazon.com/images/I/81CRko3o+mL._SY425_.jpg" alt='' /></p>
-                    <a className={styles.button} href="/details">Details</a>
-                </div>
+                {currentBooks.map(book => <BookList key={book._id} {...book} />)}
 
-                <div className={styles.bookLi}>
-                    <h3>Be Useful: Seven tools for life</h3>
-                    <p>Type: Motivational</p>
-                    <p className={styles.img}><img src="https://m.media-amazon.com/images/I/81hHLRxL4uL._SY425_.jpg" alt='' /></p>
-                    <a className={styles.button} href="/details">Details</a>
-                </div>
             </div>
-            {/* <!-- Display paragraph: If there are no books in the database --> */}
-            <p className={styles.noBooks}>No books available!</p>
+
+            {books.length === 0 && (
+
+                <p className='noBooks'>No books available!</p>
+
+            )}
+            <Pagination
+                booksPerPage={BOOKS_PER_PAGE}
+                allBooksLength={books.length}
+                currentPage={currentPage}
+                paginate={paginate}
+            />
+
         </section>
     );
 }
