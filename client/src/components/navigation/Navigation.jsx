@@ -6,7 +6,7 @@ export default function Navigation() {
 
     return (
         
-        <nav>
+        <nav className={style.mainNav}>
             <input type="checkbox" className={style.checkbox} id="check"></input>
             <label htmlFor="check" className={style.checkbtn}>
                 <i className="fas fa-bars"></i>

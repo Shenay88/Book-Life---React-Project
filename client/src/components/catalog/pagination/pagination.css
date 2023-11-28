@@ -1,0 +1,29 @@
+.pagination {
+    display: flex;
+    justify-content: center;
+    flex-wrap: nowrap;
+    list-style: none;
+    gap: 10px;
+}
+
+.pagination .page {
+    border: 1px solid black;
+    width: 35px;
+    padding: 5px 10px;
+    height: auto;
+    background-color:#16a085;
+    text-align: center;
+   
+}
+
+.pagination .page:hover {
+    background-color: aquamarine;
+    cursor: pointer;
+    align-items: center;
+}
+
+.pagination .page a.currentPage {
+    text-decoration: none;
+    color: white;
+
+}
