@@ -30,22 +30,26 @@ export default function Create() {
 
     return (
         <form className='createForm' onSubmit={createBookSubmitHandler}>
-            <h1 className='creareTitle'>Add Book</h1>
+            <h1 className='createTitle'>Add Book</h1>
             <div className="container">
 
                 <input type="text" name="title" className="title" placeholder="Title" />
                 <input type="text" name="img" className="img" placeholder="Image URL" />
 
                 <div className="row">
-                    <div className="half">
+                    <div className="yearInput">
                         <input type="number" name="year" className="year" placeholder='Year' />
                     </div>
 
-                    <div className="half">
+                    <div className="typeInput">
                         <select name="type" className="type">
-                            <option value="">Choose one</option>
-                            <option value="motivational">Motivational</option>
+                            <option value="">Book Type</option>
+                            <option value="fantasy">Fantasy</option>
                             <option value="fiction">Fiction</option>
+                            <option value="motivational">Motivational</option>
+                            <option value="mystery">Mystery</option>
+                            <option value="nonFiction">Non-Fiction</option>
+                            <option value="romance">Romance</option>
                         </select>
                     </div>
                 </div>
