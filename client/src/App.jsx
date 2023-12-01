@@ -11,7 +11,7 @@ import Navigation from "./components/navigation/Navigation";
 import Pagination from "./components/catalog/pagination/Pagination";
 import Register from "./components/register/Register";
 import AuthContext from "./contexts/AuthContext";
-import { loginUser } from "./services/authService";
+import { loginUser, registerUser } from "./services/authService";
 import Path from "./paths";
 
 function App() {
@@ -29,8 +29,19 @@ function App() {
     navigate(Path.Home);
   }
 
+  const registerSubmitHandler = async(values) => {
+
+    const newUserResult = await registerUser(values);
+    setUser(newUserResult);
+
+    console.log(newUserResult)
+
+    navigate(Path.Home);
+  }
+
   const userValues = {
     loginSubmitHandler,
+    registerSubmitHandler,
     email: user.email,
     id: user._id,
     isUser: !!user.email
