@@ -1,5 +1,3 @@
-
-
 .loginContainer{
   max-width: 500px;
   padding: 0 20px;
@@ -25,14 +23,17 @@
   align-items: center;
   justify-content: center;
 }
+
 .login .loginForm{
   padding: 30px 25px 25px 25px;
 }
+
 .login .loginForm .row{
   height: 45px;
   margin-bottom: 15px;
   position: relative;
 }
+
 .login .loginForm .row input{
   height: 100%;
   width: 100%;
@@ -43,13 +44,16 @@
   font-size: 16px;
   transition: all 0.3s ease;
 }
+
 .loginForm .row input:focus{
   border-color: #16a085;
   box-shadow: inset 0px 0px 2px 2px rgba(26,188,156,0.25);
 }
+
 .loginForm .row input::placeholder{
   color: #999;
 }
+
 .login .loginForm .row i{
   position: absolute;
   width: 47px;
@@ -73,6 +77,8 @@
   border: 1px solid #16a085;
   cursor: pointer;
 }
+
+
 .loginForm .button input:hover{
   background: #12876f;
 }
@@ -81,10 +87,16 @@
   margin-top: 20px;
   font-size: 17px;
 }
+
 .login .loginForm .signup a{
   color: #16a085;
   text-decoration: none;
 }
+
 .loginForm .signup a:hover{
-  text-decoration: underline;
+  text-decoration: none;
+  color: #fff;
+  background-color: #16a085;
+  padding: 5px;
+  border-radius: 5px;
 } 
