@@ -4,7 +4,7 @@ import useForm from '../../hooks/useForm';
 
 import './login.css'
 import { useContext } from 'react';
-import AuthContext from '../../contexts/AuthContext';
+import AuthContext from '../../contexts/authContext';
 import Path from '../../paths';
 
 // 1 -> Make input fields controllable

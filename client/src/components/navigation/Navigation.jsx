@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 import style from './Navigation.module.css'
 
-import AuthContext from '../../contexts/AuthContext'
+import AuthContext from '../../contexts/authContext'
 import Path from '../../paths'
 
 

@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import './register.css'
-import AuthContext from '../../contexts/AuthContext';
+import AuthContext from '../../contexts/authContext';
 import useForm from '../../hooks/useForm';
 import { Link } from 'react-router-dom';
 import Path from '../../paths';
