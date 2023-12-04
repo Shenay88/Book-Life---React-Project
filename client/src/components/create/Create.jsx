@@ -17,12 +17,12 @@ export default function Create() {
 
             // We get an object with all the data from the server, _id included
             const newBook = await createBook(bookData);
-            console.log(newBook)
+            console.log('[CREATE BOOK SUCCESS]', newBook)
             navigate('/');
 
         } catch (error) {
 
-            console.log(error)
+            console.log('[CREATE BOOK ERROR]', error)
 
         }
 

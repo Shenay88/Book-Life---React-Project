@@ -22,15 +22,15 @@
   align-items: center;
   justify-content: center;
 }
-.register form{
+.register .registerForm{
   padding: 30px 25px 25px 25px;
 }
-.register form .row{
+.register .registerForm .row{
   height: 45px;
   margin-bottom: 15px;
   position: relative;
 }
-.register form .row input{
+.register .registerForm .row input{
   height: 100%;
   width: 100%;
   outline: none;
@@ -40,14 +40,14 @@
   font-size: 16px;
   transition: all 0.3s ease;
 }
-form .row input:focus{
+.registerForm .row input:focus{
   border-color: #16a085;
   box-shadow: inset 0px 0px 2px 2px rgba(26,188,156,0.25);
 }
-form .row input::placeholder{
+.registerForm .row input::placeholder{
   color: #999;
 }
-.register form .row i{
+.register .registerForm .row i{
   position: absolute;
   width: 47px;
   height: 100%;
@@ -61,7 +61,7 @@ form .row input::placeholder{
   justify-content: center;
 }
 
-.register form .button input{
+.register .registerForm .button input{
   color: #fff;
   font-size: 20px;
   font-weight: 500;
@@ -70,18 +70,26 @@ form .row input::placeholder{
   border: 1px solid #16a085;
   cursor: pointer;
 }
-form .button input:hover{
+.registerForm .button input:hover{
   background: #12876f;
 }
-.register form .signin{
+.register .registerForm .signIn{
   text-align: center;
   margin-top: 20px;
   font-size: 17px;
 }
-.register form .signin a{
+.register .registerForm .signIn a{
   color: #16a085;
   text-decoration: none;
 }
-form .signin a:hover{
+.registerForm .signIn a:hover{
   text-decoration: underline;
+} 
+
+.registerForm .signIn a:hover{
+  text-decoration: none;
+  color: #fff;
+  background-color: #16a085;
+  padding: 5px;
+  border-radius: 5px; 
 } 

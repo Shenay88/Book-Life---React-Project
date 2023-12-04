@@ -1,27 +1,33 @@
 
 const baseUrl = 'http://localhost:3030/users';
 
-export const loginUser = async (loginData) => {
+import bcrypt from 'bcryptjs';
+import { get, post } from '../lib/request';
 
-    const req = await fetch(`${baseUrl}/login`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(loginData)
+
+export const loginUser = async (email, password) => {
+
+    const user = await post(`${baseUrl}/login`, {
+        email,
+        password
     });
 
-    const user = await req.json();
     return user;
+
 }
 
-export const registerUser = async (registerData) => {
+export const registerUser = async (username, email, password) => {
 
-    const req = await fetch(`${baseUrl}/register`, {
-        method: 'POST',
-        headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify(registerData)
+    const hashedPassword = await bcrypt.hash(password, 10);
+
+    const newUser = await post(`${baseUrl}/register`, {
+        username,
+        email,
+        password: hashedPassword
     });
-
-    const newUser = await req.json();
 
     return newUser;
+
 }
+
+export const logoutUser = () => get(`${baseUrl}/logout`);

@@ -2,6 +2,8 @@ import { useContext } from 'react';
 import './register.css'
 import AuthContext from '../../contexts/AuthContext';
 import useForm from '../../hooks/useForm';
+import { Link } from 'react-router-dom';
+import Path from '../../paths';
 
 
 const RegisterKeys = {
@@ -20,7 +22,6 @@ export default function Register() {
         [RegisterKeys.Username]: '',
         [RegisterKeys.Email]: '',
         [RegisterKeys.Password]: '',
-        [RegisterKeys.Repass]: '',
     });
 
 
@@ -28,11 +29,12 @@ export default function Register() {
         <div className="registerContainer">
             <div className="register">
                 <div className="registerTitle"><span>Register Form</span></div>
-                <form onSubmit={onSubmit}>
+                <form onSubmit={onSubmit} className='registerForm'>
                     <div className="row">
                         <i className="fas fa-user"></i>
                         <input
                             type="username"
+                            id='username'
                             name={RegisterKeys.Username}
                             placeholder="Username"
                             onChange={onChange}
@@ -43,8 +45,9 @@ export default function Register() {
                         <i className="fas fa-envelope"></i>
                         <input
                             type="email"
+                            id='email'
                             name={RegisterKeys.Email}
-                            placeholder="Email"
+                            placeholder="example@gmail.com"
                             onChange={onChange}
                             value={values[RegisterKeys.Email]}
                         />
@@ -53,26 +56,17 @@ export default function Register() {
                         <i className="fas fa-lock"></i>
                         <input
                             type="password"
+                            id='password'
                             name={RegisterKeys.Password}
                             placeholder="Password"
                             onChange={onChange}
                             value={values[RegisterKeys.Password]}
                         />
                     </div>
-                    <div className="row">
-                        <i className="fas fa-lock"></i>
-                        <input
-                            type="password"
-                            name={RegisterKeys.Repass}
-                            placeholder="Repeat password"
-                            onChange={onChange}
-                            value={values[RegisterKeys.Repass]}
-                        />
-                    </div>
                     <div className="row button">
                         <input type="submit" value="Register" />
                     </div>
-                    <div className="signin">Already have an account? <a href="#">Signup now</a></div>
+                    <div className="signIn">Already have an account? <Link to={Path.Login}>Signup now</Link></div>
                 </form>
             </div>
         </div>

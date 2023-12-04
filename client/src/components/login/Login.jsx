@@ -5,6 +5,7 @@ import useForm from '../../hooks/useForm';
 import './login.css'
 import { useContext } from 'react';
 import AuthContext from '../../contexts/AuthContext';
+import Path from '../../paths';
 
 // 1 -> Make input fields controllable
 // values - key will be the name in the input tag
@@ -18,6 +19,8 @@ const LoginKeys = {
 export default function Login() {
 
     const { loginSubmitHandler } = useContext(AuthContext);
+
+    // values --> an object key(name): value
     const { values, onChange, onSubmit } = useForm(loginSubmitHandler, {
         [LoginKeys.Email]: '',
         [LoginKeys.Password]: ''
@@ -33,6 +36,7 @@ export default function Login() {
                         <i className="fas fa-user"></i>
                         <input
                             type="email"
+                            id='email'
                             name={LoginKeys.Email}
                             placeholder="Email"
                             onChange={onChange}
@@ -43,6 +47,7 @@ export default function Login() {
                         <i className="fas fa-lock"></i>
                         <input
                             type="password"
+                            id='password' 
                             name={LoginKeys.Password}
                             placeholder="Password"
                             onChange={onChange}
@@ -52,7 +57,7 @@ export default function Login() {
                     <div className="row button">
                         <input type="submit" />
                     </div>
-                    <div className="signup">Not a member? <Link to="/register">Signup now</Link></div>
+                    <div className="signup">Not a member? <Link to={Path.Register}>Signup now</Link></div>
                 </form>
             </div>
         </div>

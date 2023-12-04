@@ -26,7 +26,7 @@ export default function Catalog() {
         <section className='dashboard'>
             <div className='booksList'>
 
-                {currentBooks.map(book => <BookList key={book._id} {...book} />)}
+                {books.map(book => <BookList key={book._id} {...book} />)}
 
             </div>
 

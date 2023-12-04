@@ -32,13 +32,13 @@ export default function useForm(submitHandler,initialValues) {
         }))
     }
 
+
     const onSubmit = (e) => {
         e.preventDefault();
 
         submitHandler(values);
     }
 
-    console.log(values)
     return {
         values,
         onChange,

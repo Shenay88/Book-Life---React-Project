@@ -1,14 +1,15 @@
-import { useContext } from 'react'
+import { useContext} from 'react'
 import { Link } from 'react-router-dom'
 
 import style from './Navigation.module.css'
 
 import AuthContext from '../../contexts/AuthContext'
+import Path from '../../paths'
 
 
 export default function Navigation() {
 
-    const { email, isUser } = useContext(AuthContext)
+    const {isUser } = useContext(AuthContext);
 
     return (
 
@@ -19,19 +20,19 @@ export default function Navigation() {
             </label>
             <label className={style.title}>Book Life</label>
             <ul>
-                <li><Link className={style.home} to="/">Home</Link></li>
+                <li><Link className={style.home} to={Path.Home}>Home</Link></li>
                 {isUser && (
                     <>
                         <li><Link className={style.myBooks} to="/myBook">My Books</Link></li>
                         <li><Link className={style.addBook} to="/addBook">Add Book</Link></li>
-                        <li><Link className={style.logout} to="/logout">Logout</Link></li>
+                        <li><Link className={style.logout} to={Path.Logout}>Logout</Link></li>
                     </>
                 )}
 
                 {!isUser && (
                     <>
-                        <li><Link className={style.login} to="/login">Login</Link></li>
-                        <li><Link className={style.register} to="/register">Register</Link></li>
+                        <li><Link className={style.login} to={Path.Login}>Login</Link></li>
+                        <li><Link className={style.register} to={Path.Register}>Register</Link></li>
                     </>
                 )}
             </ul>

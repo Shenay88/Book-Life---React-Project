@@ -1507,6 +1507,48 @@
     			_id: "a9bae6d8-793e-46c4-a9db-deb9e3484909"
     		}
     	},
+        books: {
+            "1240549d-f0e0-497e-ab99-eb8f703713d7": {
+                _ownerId: "847ec027-f659-4086-8032-5173e2f9c93a",
+                title: "Charlie and the Chocolate Factory",
+                type: "Fiction",
+                description: "Feyre's survival rests upon her ability to hunt and kill - the forest where she lives is a cold, bleak place in the long winter months. So when she spots a deer in the forest being pursued by a wolf, she cannot resist fighting it for the flesh. But to do so, she must kill the predator and killing something so precious comes at a price ...",
+                img: "https://m.media-amazon.com/images/I/51hxjozCakL._SY445_SX342_.jpg",
+                year: "2021",
+                _createdOn: 1614935055353,
+                _id: "1240549d-f0e0-497e-ab99-eb8f703713d7"
+            },
+            "143e5265-333e-4150-80e4-16b61de31aa0": {
+                _ownerId: "847ec027-f659-4086-8032-5173e2f9c93a",
+                title: "The Power Of Positive Thinking",
+                type: "Motivational",
+                description: "The phenomenal and inspiring bestseller by the father of positive thinking. THE POWER OF POSITIVE THINKING is a practical, direct-action application of spiritual techniques to overcome defeat and win confidence, success and joy. Norman Vincent Peale, the father of positive thinking and one of the most widely read inspirational writers of all time, shares his famous formula of faith and optimism which millions of people have taken as their own simple and effective philosophy of living. His gentle guidance helps to eliminate defeatist attitudes, to know the power you possess and to make the best of your life.",
+                img: "https://m.media-amazon.com/images/I/81CRko3o+mL._SY425_.jpg",
+                year: "2021",
+                _createdOn: 1614935181470,
+                _id: "143e5265-333e-4150-80e4-16b61de31aa0"
+            },
+            "a9bae6d8-793e-46c4-a9db-deb9e3484909":{
+                _ownerId: "847ec027-f659-4086-8032-5173e2f9c93a",
+                title: "Be Useful: Seven tools for life",
+                type: "Motivational",
+                description: "The world's greatest bodybuilder. The world's highest paid movie star. The leader of the world's sixth largest economy. That these are the same person sounds like the setup to a joke. But this is no joke. This is Arnold Schwarzenegger. And this did not happen by accident.",
+                img: "https://m.media-amazon.com/images/I/81hHLRxL4uL._SY425_.jpg",
+                year: "2021",
+                _createdOn: 1614935055353,
+                _id: "a9bae6d8-793e-46c4-a9db-deb9e3484909"
+            },
+        
+            "c1a88346-61a9-40d6-a343-bb9b7a79086f": {
+                _ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
+                title: "The Boy Who Made Everyone Laugh",
+                type: "fiction",
+                description: "Billy Plimpton is an eleven-year-old boy with a big dream. He wants to be a stand-up comedian when he grows up: delivering pinpoint punch-lines and having audiences hang on his every hilarious word. A tough career for anyone, but surely impossible for Billy, who has a stammer. How will he find his voice, if his voice won't let him speak?",
+                img: "https://m.media-amazon.com/images/I/517s8WRGjYL._SY445_SX342_.jpg",
+                year: "2021",
+                _id: "c1a88346-61a9-40d6-a343-bb9b7a79086f"
+            }
+        },
     	likes: {
     	},
     	ideas: {
