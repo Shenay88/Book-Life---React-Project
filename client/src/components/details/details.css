@@ -73,6 +73,8 @@
 
 .remove {
     background-color: #d9534f;
+    border: none;
+    cursor: pointer;
 }
 
 /* Responsive layout for smaller screens */

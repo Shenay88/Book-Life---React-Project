@@ -13,7 +13,8 @@ export default function Catalog() {
 
     useEffect(() => {
         getAllBooks()
-            .then(allBooks => setBooks(allBooks));
+            .then(allBooks => setBooks(allBooks))
+            .catch(err => { throw new Error(err)});  
     }, []);
 
     const indexOfLastBook = currentPage * BOOKS_PER_PAGE; //1 * 5
@@ -26,7 +27,7 @@ export default function Catalog() {
         <section className='dashboard'>
             <div className='booksList'>
 
-                {books.map(book => <BookList key={book._id} {...book} />)}
+                {currentBooks.map(book => <BookList key={book._id} {...book} />)}
 
             </div>
 

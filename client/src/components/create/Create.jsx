@@ -1,48 +1,50 @@
 import { createBook } from '../../services/bookService';
-import {useNavigate} from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import './create.css';
+import Path from '../../paths';
+import useForm from '../../hooks/useForm';
 
 export default function Create() {
 
     const navigate = useNavigate()
 
-    // Uncontrolled form
-    const createBookSubmitHandler = async (e) => {
-        e.preventDefault();
-
-        // We get an object with all input values.
-        const bookData = Object.fromEntries(new FormData(e.currentTarget));
-
+    const createBookSubmitHandler = async (bookData) => {
+       
         try {
 
             // We get an object with all the data from the server, _id included
             const newBook = await createBook(bookData);
-            console.log('[CREATE BOOK SUCCESS]', newBook)
-            navigate('/');
+            navigate(Path.Home);
 
         } catch (error) {
 
-            console.log('[CREATE BOOK ERROR]', error)
-
+            alert(error.message);
         }
-
     }
 
+    const { values, onChange, onSubmit } = useForm(createBookSubmitHandler, {
+        title: '',
+        img: '',
+        year: '',
+        type: '',
+        description: ''
+    });
+
     return (
-        <form className='createForm' onSubmit={createBookSubmitHandler}>
+        <form className='createForm' onSubmit={onSubmit}>
             <h1 className='createTitle'>Add Book</h1>
             <div className="container">
 
-                <input type="text" name="title" className="title" placeholder="Title" />
-                <input type="text" name="img" className="img" placeholder="Image URL" />
+                <input type="text" name="title" className="title" value={values.title} onChange={onChange} placeholder="Title" />
+                <input type="text" name="img" className="img" value={values.img} onChange={onChange} placeholder="Image URL" />
 
                 <div className="row">
                     <div className="yearInput">
-                        <input type="number" name="year" className="year" placeholder='Year' />
+                        <input type="number" name="year" className="year" value={values.year} onChange={onChange} placeholder='Year' />
                     </div>
 
                     <div className="typeInput">
-                        <select name="type" className="type">
+                        <select name="type" className="type" value={values.type} onChange={onChange}>
                             <option value="">Book Type</option>
                             <option value="fantasy">Fantasy</option>
                             <option value="fiction">Fiction</option>
@@ -54,7 +56,7 @@ export default function Create() {
                     </div>
                 </div>
 
-                <textarea name="description" className="description" placeholder='Description'></textarea>
+                <textarea name="description" className="description" value={values.description} onChange={onChange} placeholder='Description'></textarea>
 
                 <input type="submit" value="Add Book" />
 
