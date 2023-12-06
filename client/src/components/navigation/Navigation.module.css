@@ -15,8 +15,12 @@
     line-height: 80px;
     padding: 0 100px;
     font-weight: bold;
+    text-decoration: none;
 }
 
+.title:hover {
+    background-color: #16a085;
+}
 
 .mainNav ul {
     float: right;
@@ -38,7 +42,7 @@
     text-transform: uppercase;
 }
 
-a.active,
+
 a:hover {
     background: #065041;
     transition: .5s;
@@ -96,8 +100,7 @@ a:hover {
         font-size: 20px;
     }
 
-    a:hover,
-    a.active {
+    a:hover {
         background: none;
         background-color: #065041;
     }
