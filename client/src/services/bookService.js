@@ -4,15 +4,22 @@ import { del, get, post, put } from "../lib/request";
 const baseUrl = 'http://localhost:3030/data/books';
 
 
-export const getAllBooks = async (page, pageSize = 4) => {
+export const getAllBooks = async (page) => {
     const query = new URLSearchParams({
-        offset: (page - 1) * pageSize,
-        pageSize: pageSize,
+        offset: (page - 1) * 4,
+        pageSize: 4,
     });
 
     const getAllBooks = await get(`${baseUrl}?${query}`);
 
     return getAllBooks;
+}
+
+export const getBooksCount = async () => {
+
+    const getBooksLength = await get(`${baseUrl}?count`);
+
+    return getBooksLength;
 }
 
 export const createBook = async (bookData) => {

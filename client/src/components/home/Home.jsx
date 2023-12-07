@@ -21,7 +21,7 @@ export default function Home() {
     return (
 
         <>
-            <section className='dashboard'>
+            <section className='home'>
                 <div className='booksHomeList'>
 
                     {latestBooks.map(book => <LatestBook key={book._id} {...book} />)}

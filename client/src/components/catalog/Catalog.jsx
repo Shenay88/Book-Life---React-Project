@@ -1,33 +1,42 @@
 import { useEffect, useState } from 'react';
 import './catalog.css'
-import { getAllBooks } from '../../services/bookService';
+import { getAllBooks, getBooksCount } from '../../services/bookService';
 import BookList from './book-list-item/BookList';
 
 
 export default function Catalog() {
     const [books, setBooks] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
+    const [booksLength, setBooksLength] = useState(0);
+    const [isPreviousButtonDisabled, setPreviousButtonDisabled] = useState(true);
+    const [isNextButtonDisabled, setNextButtonDisabled] = useState(false);
 
 
     useEffect(() => {
-        booksPaginate(currentPage);
-    }, [currentPage]);
 
-    const booksPaginate = (page) => {
         try {
-            getAllBooks(page)
-                .then(allBooks => setBooks(allBooks));
+            getAllBooks(currentPage)
+                .then(allBooks => setBooks(allBooks)); //идват само 4 книги, защото заявката е за толкова.
+
+            getBooksCount()
+                .then(result => setBooksLength(result));// число с общия брой на книги.
 
         } catch (error) {
 
             alert(error.message);
         }
-    };
+
+    }, [currentPage]);
 
     const handlePageChange = (newPage) => {
         setCurrentPage(newPage);
+        
+        const isPreviousDisabled = newPage === 1;
+        const isNextDisabled = newPage === Math.ceil(booksLength / 4);
+     
+        setPreviousButtonDisabled(isPreviousDisabled);
+        setNextButtonDisabled(isNextDisabled);
     };
-
 
     return (
         <section className='dashboard'>
@@ -37,17 +46,17 @@ export default function Catalog() {
 
             </div>
 
-            {books.length > 0 && (
+            {booksLength >= 1 && (
 
                 <div className='pageButtons'>
-                    <button className='pageBtn' onClick={() => handlePageChange(currentPage - 1)} disabled={currentPage === 1}> Previous Page </button>
-                    <button className='pageBtn' onClick={() => handlePageChange(currentPage + 1)}> Next Page</button>
+                    <button className='pageBtn' onClick={() => handlePageChange(currentPage - 1)} disabled={isPreviousButtonDisabled} > Previous Page </button>
+                    <button className='pageBtn' onClick={() => handlePageChange(currentPage + 1)} disabled={isNextButtonDisabled}> Next Page</button>
                 </div>
 
             )}
 
 
-            {books.length === 0 && (
+            {booksLength === 0 && (
 
                 <p className='noBooks'>No books available!</p>
 
