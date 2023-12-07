@@ -20,10 +20,14 @@ export default function Navigation() {
             </label>
             <Link className={style.title} to={Path.Home}>Book Life</Link>
             <ul>
+                <li className={style.searchBar}>
+                    <form className={style.searchForm}>
+                        <input className={style.searchInput} type="search" placeholder="Search..." />
+                    </form>
+                </li>
                 <li><Link className={style.home} to={Path.Catalog}>Catalog</Link></li>
                 {isUser && (
                     <>
-                        <li><Link className={style.myBooks} to="/myBook">My Books</Link></li>
                         <li><Link className={style.addBook} to={Path.AddBook}>Add Book</Link></li>
                         <li><Link className={style.logout} to={Path.Logout}>Logout</Link></li>
                     </>

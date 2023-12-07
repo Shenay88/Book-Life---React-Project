@@ -8,7 +8,6 @@ import Catalog from "./components/catalog/Catalog";
 import Details from "./components/details/Details";
 import Login from "./components/login/Login";
 import Navigation from "./components/navigation/Navigation";
-import Pagination from "./components/catalog/pagination/Pagination";
 import Register from "./components/register/Register";
 import Logout from "./components/logout/Logout";
 import Edit from "./components/edit/Edit";
@@ -37,7 +36,7 @@ function App() {
           <Route path={Path.EditBook} element={<Edit />} />
           <Route path={Path.Logout} element={<Logout />} />
         </Route>
-        
+
 
         <Route element={<GuestGuard />}>
           <Route path={Path.Login} element={<Login />} />

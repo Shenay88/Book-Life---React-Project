@@ -62,6 +62,14 @@ a:hover {
     display: none;
 }
 
+.searchInput {
+    width: 300px;
+    height: 30px;
+    border-radius: 5px;
+    border: none;
+    padding: 10px;
+}
+
 @media (max-width: 1008px) {
     .title {
         font-size: 30px;
