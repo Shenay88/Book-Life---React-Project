@@ -1,23 +1,34 @@
-import { Link } from "react-router-dom";
+import { useContext, useEffect, useState } from "react";
+// import { Link, useParams } from "react-router-dom";
+import { getLatestBooks } from "../../services/bookService";
+import LatestBook from "./latestBook/latestBook";
+import AuthContext from "../../contexts/authContext";
 
 export default function Home() {
 
+    const [latestBooks, setLatestBooks] = useState([]);
+    const { isUser } = useContext(AuthContext);
+
+    console.log(isUser)
+
+    useEffect(() => {
+
+        getLatestBooks()
+            .then(result => setLatestBooks(result))
+
+    }, []);
+
     return (
 
-        <section className='dashboard'>
 
+        <section className='dashboard'>
             <div className='booksList'>
 
-                <div className='bookLi'>
-                    <h3>Charlie and the Chocolate Factory </h3>
-                    <p>Type: Fiction </p>
-                    <p className='img'><img className="bookLiImg" src='https://m.media-amazon.com/images/I/51hxjozCakL._SY445_SX342_.jpg' alt='Charlie and the Chocolate Factory' /></p>
-                    <Link to='#' className='button'>Details</Link>
-                </div>
+                {latestBooks.map(book => <LatestBook key={book._id} {...book} />)}
 
             </div>
-
         </section>
+
 
     )
 }

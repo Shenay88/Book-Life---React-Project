@@ -91,3 +91,15 @@ export const deleteBook = async (bookId) => {
 
     return del(`${baseUrl}/${bookId}`);
 }
+
+export const getLatestBooks = async () => {
+
+
+    const query = new URLSearchParams({
+        offset: 0,
+        pageSize: 3,
+    });
+    const latestBooks = await get(`${baseUrl}?sortBy=_createdOn desc${query}`);
+
+    return latestBooks;
+};
