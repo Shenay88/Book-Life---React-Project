@@ -4,12 +4,12 @@ import { getLatestBooks } from "../../services/bookService";
 import LatestBook from "./latestBook/latestBook";
 import AuthContext from "../../contexts/authContext";
 
+import './home.css'
+
 export default function Home() {
 
     const [latestBooks, setLatestBooks] = useState([]);
     const { isUser } = useContext(AuthContext);
-
-    console.log(isUser)
 
     useEffect(() => {
 
@@ -20,15 +20,23 @@ export default function Home() {
 
     return (
 
+        <>
+            <section className='dashboard'>
+                <div className='booksHomeList'>
 
-        <section className='dashboard'>
-            <div className='booksList'>
+                    {latestBooks.map(book => <LatestBook key={book._id} {...book} />)}
 
-                {latestBooks.map(book => <LatestBook key={book._id} {...book} />)}
+                </div>
+            </section>
 
-            </div>
-        </section>
+            {
+                latestBooks.length === 0 && (
 
+                    <p className='noBooks'>No books available!</p>
 
-    )
+                )
+            }
+        </>
+
+    );
 }

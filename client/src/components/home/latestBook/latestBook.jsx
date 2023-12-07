@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 export default function LatestBook(book) {
 
     return (
-        <div className='bookLi'>
+        <div className='bookHomeLi'>
             <h3>{book.title}</h3>
             <p>Type: {book.type} </p>
             <p className='img'><img className="bookLiImg" src={book.img} alt={book.title} /></p>

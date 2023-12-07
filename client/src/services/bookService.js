@@ -4,9 +4,14 @@ import { del, get, post, put } from "../lib/request";
 const baseUrl = 'http://localhost:3030/data/books';
 
 
-export const getAllBooks = async () => {
+export const getAllBooks = async (page, pageSize = 4) => {
+    const query = new URLSearchParams({
+        offset: (page - 1) * pageSize,
+        pageSize: pageSize,
+    });
 
-    const getAllBooks = await get(baseUrl);
+    const getAllBooks = await get(`${baseUrl}?${query}`);
+
     return getAllBooks;
 }
 
@@ -26,15 +31,15 @@ export const createBook = async (bookData) => {
 
     const urlPattern = /https?:\/\/./i
 
-    if(urlPattern.test(img) === false) {
+    if (urlPattern.test(img) === false) {
         throw new Error('Invalid URL');
     }
 
-    if(title.length < 4) {
+    if (title.length < 4) {
         throw new Error('Book name must be at least 4 characters long');
     }
 
-    if(year < 1700) {
+    if (year < 1700) {
         throw new Error('Year is out of range');
     }
 
@@ -67,20 +72,20 @@ export const updateBook = async (bookId, bookData) => {
 
     const urlPattern = /https?:\/\/./i
 
-    if(urlPattern.test(img) === false) {
+    if (urlPattern.test(img) === false) {
         throw new Error('Invalid URL');
     }
 
-    if(title.length < 4) {
+    if (title.length < 4) {
         throw new Error('Book name must be at least 4 characters long');
     }
 
-    if(year < 1700) {
+    if (year < 1700) {
         throw new Error('Year is out of range');
     }
 
     const updatedBook = { title, img, year, type, description }
-  
+
 
     const updatedBookResponse = await put(`${baseUrl}/${bookId}`, updatedBook) // _id
 

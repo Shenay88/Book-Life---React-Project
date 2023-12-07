@@ -26,11 +26,10 @@ function App() {
       <Routes >
 
         <Route path={Path.Home} element={<Home />} />
-        <Route path={Path.Catalog} element={<Catalog />}>
-          <Route path="books" element={<Pagination />} />
-        </Route>
+        <Route path={Path.Catalog} element={<Catalog />}/>
         <Route path={Path.BookDetails} element={<Details />} />
         <Route path='*' element={<Page404 />} />
+
 
         <Route element={<AuthGuard />}>
 
@@ -38,6 +37,7 @@ function App() {
           <Route path={Path.EditBook} element={<Edit />} />
           <Route path={Path.Logout} element={<Logout />} />
         </Route>
+        
 
         <Route element={<GuestGuard />}>
           <Route path={Path.Login} element={<Login />} />

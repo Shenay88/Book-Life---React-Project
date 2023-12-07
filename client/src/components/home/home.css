@@ -1,4 +1,4 @@
-.booksList {
+.booksHomeList {
     margin-top: 100px;
     list-style: none;
     display: flex;
@@ -9,34 +9,34 @@
 
 }
 
-.bookLi {
+.bookHomeLi {
     background-color: #fff;
     border: 1px solid #ddd;
     border-radius: 8px;
     margin: 10px;
     padding: 15px;
-    width: 300px;
+    width: 250px;
 }
 
-.bookLi h3 {
+.bookHomeLi h3 {
     font-size: 20px;
     margin-top: 0;
     text-align: center;
 }
 
-.bookLi p {
+.bookHomeLi p {
     font-size: 20px;
     margin: 10px 0;
     text-align: center;
 }
 
-.bookLi .img .bookLiImg {
+.bookHomeLi .img .bookLiImg {
     max-width: 100%;
     height: 200px;
     border-radius: 5px;
 }
 
-.bookLi .button {
+.bookHomeLi .button {
     display: block;
     font-size: 22px;
     margin-top: 30px;
@@ -56,37 +56,15 @@
 
 }
 
-.pageButtons {
-    display: flex;
-    justify-content: space-evenly;
-}
-
-.pageBtn {
-    width: 200px;
-    padding: 10px;
-    margin-top: 20px;
-    border-radius: 5px;
-    border: none;
-    background-color: #0b8d73;
-    color: #fff;
-    font-size: 20px;
-}
-
-.pageBtn:hover {
-    cursor: pointer;
-    background-color: #00ffcc;
-    color: black;
-}
-
 
 @media (max-width: 855px) {
-    .booksList {
+    .booksHomeList {
         flex-wrap: wrap;
     }
 }
 
 @media (max-width: 600px) {
-    .booksList {
+    .booksHomeList {
         flex-wrap: wrap;
     }
 }
