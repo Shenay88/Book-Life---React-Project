@@ -1,10 +1,11 @@
 import { Link, useNavigate, useParams } from 'react-router-dom'
 import './details.css'
 import { useEffect, useState } from 'react'
-import { deleteBook, getBookById } from '../../services/bookService'
+import { deleteBook, getBookById, getBooksCount, likeBook } from '../../services/bookService'
 import { useContext } from 'react';
 import AuthContext from '../../contexts/authContext';
 import Path from '../../paths';
+// import { sendLike } from '../../services/likeService';
 
 export default function Details() {
     const [book, setBook] = useState({});
@@ -27,8 +28,24 @@ export default function Details() {
             await deleteBook(bookId);
             navigate(Path.Catalog);
         }
-
     }
+
+    const likeBtnHandler = async () => {
+        try {
+            // Check if the user has already liked the book
+            if (!book.likes.includes(id)) {
+                // If not, update the likes array and the likes count
+                const updatedBook = await likeBook(bookId, id);
+                setBook(updatedBook);
+            } else {
+                console.log("User already liked the book");
+            }
+        } catch (error) {
+            console.error("Error liking the book:", error);
+        }
+    };
+
+
 
     return (
         <section className="detailsPage">
@@ -49,6 +66,15 @@ export default function Details() {
                         <div className="actionBtn">
                             <Link to={`/books/edit/${bookId}`} className="edit">Edit</Link>
                             <button className="remove" onClick={deleteBtnHandler}>Delete</button>
+                        </div>
+                    )}
+
+                    {id !== book._ownerId && (
+                        <div>
+                            <button className='likeBtn'  onClick={likeBtnHandler}>
+                                <i className="fas fa-heart"></i>
+                            </button>
+                            <span className='likes'>Likes:</span>
                         </div>
                     )}
 

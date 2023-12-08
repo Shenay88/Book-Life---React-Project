@@ -29,10 +29,13 @@ export const createBook = async (bookData) => {
         img,
         year,
         type,
-        description
+        description,
     } = bookData;
+    
+    const titleTrim = title.trim();
+    const descriptionTrim = description.trim();
 
-    if (title == '' || img == '' || year == '' || type == '' || description == '') {
+    if (titleTrim == '' || img == '' || year == '' || type == '' || descriptionTrim == '') {
         throw new Error('All fields are required')
     };
 
@@ -50,7 +53,9 @@ export const createBook = async (bookData) => {
         throw new Error('Year is out of range');
     }
 
-    const book = { title, img, year, type, description }
+    const likes = [];
+
+    const book = { title:titleTrim, img, year, type, description: descriptionTrim, likes}
 
     const createBookResponse = await post(baseUrl, book) // _id
 
@@ -114,4 +119,18 @@ export const getLatestBooks = async () => {
     const latestBooks = await get(`${baseUrl}?sortBy=_createdOn desc${query}`);
 
     return latestBooks;
+};
+
+
+export const likeBook = async (bookId, userId) => {
+    try {
+        // Make an API call to update the likes for the book
+        const response = await post(`/books/${bookId}/like`, { userId });
+        
+        // Return the updated book object with the new likes array
+        return response.data;
+    } catch (error) {
+        // Handle errors (e.g., network issues, server errors)
+        throw new Error('Error updating likes for the book');
+    }
 };

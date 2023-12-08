@@ -29,9 +29,13 @@ export default function Catalog() {
     }, [currentPage]);
 
     const handlePageChange = (newPage) => {
+
+        if (newPage < 1 || newPage > Math.ceil(booksLength / 4)) {
+            return;
+        }
         setCurrentPage(newPage);
         
-        const isPreviousDisabled = newPage === 1;
+        const isPreviousDisabled = newPage===0;
         const isNextDisabled = newPage === Math.ceil(booksLength / 4);
      
         setPreviousButtonDisabled(isPreviousDisabled);
