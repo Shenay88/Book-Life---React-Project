@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import './catalog.css'
 import { getAllBooks, getBooksCount } from '../../services/bookService';
+import { useNavigate } from 'react-router-dom';
 import BookList from './book-list-item/BookList';
 
 
@@ -10,6 +11,7 @@ export default function Catalog() {
     const [booksLength, setBooksLength] = useState(0);
     const [isPreviousButtonDisabled, setPreviousButtonDisabled] = useState(true);
     const [isNextButtonDisabled, setNextButtonDisabled] = useState(false);
+    const navigate = useNavigate();
 
 
     useEffect(() => {
@@ -33,6 +35,8 @@ export default function Catalog() {
         if (newPage < 1 || newPage > Math.ceil(booksLength / 4)) {
             return;
         }
+
+        navigate(`?page=${newPage}`);
         setCurrentPage(newPage);
         
         const isPreviousDisabled = newPage===0;
