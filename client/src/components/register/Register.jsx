@@ -66,7 +66,7 @@ export default function Register() {
                     <div className="row button">
                         <input type="submit" value="Register" />
                     </div>
-                    <div className="signIn">Already have an account? <Link to={Path.Login}>Signup now</Link></div>
+                    <div className="signIn">Already have an account? <Link to={Path.Login}>Sign in</Link></div>
                 </form>
             </div>
         </div>

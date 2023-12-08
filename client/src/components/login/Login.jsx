@@ -55,9 +55,9 @@ export default function Login() {
                         />
                     </div>
                     <div className="row button">
-                        <input type="submit" />
+                        <input type="submit" value="Login" />
                     </div>
-                    <div className="signup">Not a member? <Link to={Path.Register}>Signup now</Link></div>
+                    <div className="signup">Not a member? <Link to={Path.Register}>Signup in</Link></div>
                 </form>
             </div>
         </div>
