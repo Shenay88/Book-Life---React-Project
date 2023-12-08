@@ -24,37 +24,37 @@ To run the development server, use the following command:
 
 npm run dev
 
-This will start the development server at http://localhost:3030.
+This will start the development server at http://localhost:5173/.
 
 Endpoints
 
-Home: http://localhost:3030/
+Home: http://localhost:5173/
 
-Catalog: http://localhost:3030/catalog
+Catalog: http://localhost:5173/catalog
 
-Login: http://localhost:3030/login
+Login: http://localhost:5173/login
 
-Register: http://localhost:3030/register
+Register: http://localhost:5173/register
 
-Logout: http://localhost:3030/logout
+Logout: http://localhost:5173/logout
 
-Add Book: http://localhost:3030/addBook
+Add Book: http://localhost:5173/addBook
 
-Book Details: http://localhost:3030/books/details/:bookId
+Book Details: http://localhost:5173/books/details/:bookId
 
-Edit Book: http://localhost:3030/books/edit/:bookId
+Edit Book: http://localhost:5173/books/edit/:bookId
 
 API Endpoints
 
-User Operations: http://localhost:3030/users
+User Operations: http://localhost:5173/users
 
 Login, Register, Logout
 
-Book Operations: http://localhost:3030/data/books
+Book Operations: http://localhost:5173/data/books
 
 Add Book, Book Details, Edit Book
 
-Likes: http://localhost:3030/data/likes
+Likes: http://localhost:5173/data/likes
 
 Likes functionality
 
