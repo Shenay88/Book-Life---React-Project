@@ -2,21 +2,19 @@ import { useContext, useEffect, useState } from "react";
 // import { Link, useParams } from "react-router-dom";
 import { getLatestBooks } from "../../services/bookService";
 import LatestBook from "./latestBook/latestBook";
-import AuthContext from "../../contexts/authContext";
 
 import './home.css'
 
 export default function Home() {
 
     const [latestBooks, setLatestBooks] = useState([]);
-    const { isUser } = useContext(AuthContext);
 
     useEffect(() => {
 
         getLatestBooks()
-            .then(result => setLatestBooks(result))
+            .then(result => setLatestBooks(result));
 
-    }, []);
+    }, [latestBooks]);
 
     return (
 
