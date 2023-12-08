@@ -5,12 +5,11 @@ const baseUrl = 'http://localhost:3030/data/books';
 
 
 export const getAllBooks = async (page) => {
-    const query = new URLSearchParams({
-        offset: (page - 1) * 4,
-        pageSize: 4,
-    });
 
-    const getAllBooks = await get(`${baseUrl}?${query}`);
+    const offset = (page - 1) * 4
+    const pageSize = 4;
+
+    const getAllBooks = await get(`${baseUrl}?offset=${offset}&pageSize=${pageSize}`);
 
     return getAllBooks;
 }
@@ -31,7 +30,7 @@ export const createBook = async (bookData) => {
         type,
         description,
     } = bookData;
-    
+
     const titleTrim = title.trim();
     const descriptionTrim = description.trim();
 
@@ -53,9 +52,7 @@ export const createBook = async (bookData) => {
         throw new Error('Year is out of range');
     }
 
-    const likes = [];
-
-    const book = { title:titleTrim, img, year, type, description: descriptionTrim, likes}
+    const book = { title: titleTrim, img, year, type, description: descriptionTrim }
 
     const createBookResponse = await post(baseUrl, book) // _id
 
@@ -109,6 +106,7 @@ export const deleteBook = async (bookId) => {
     return del(`${baseUrl}/${bookId}`);
 }
 
+
 export const getLatestBooks = async () => {
 
 
@@ -121,16 +119,3 @@ export const getLatestBooks = async () => {
     return latestBooks;
 };
 
-
-export const likeBook = async (bookId, userId) => {
-    try {
-        // Make an API call to update the likes for the book
-        const response = await post(`/books/${bookId}/like`, { userId });
-        
-        // Return the updated book object with the new likes array
-        return response.data;
-    } catch (error) {
-        // Handle errors (e.g., network issues, server errors)
-        throw new Error('Error updating likes for the book');
-    }
-};

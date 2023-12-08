@@ -1,21 +1,24 @@
 import { Link, useNavigate, useParams } from 'react-router-dom'
 import './details.css'
 import { useEffect, useState } from 'react'
-import { deleteBook, getBookById, getBooksCount, likeBook } from '../../services/bookService'
+import { deleteBook, getBookById } from '../../services/bookService'
 import { useContext } from 'react';
 import AuthContext from '../../contexts/authContext';
 import Path from '../../paths';
-// import { sendLike } from '../../services/likeService';
+import { getLikesByBookId, sendLike } from '../../services/likeService';
 
 export default function Details() {
     const [book, setBook] = useState({});
+    const [likesCount, setLikesCount] = useState(0)
     const { id } = useContext(AuthContext);
     const { bookId } = useParams()
     const navigate = useNavigate();
 
     useEffect(() => {
         getBookById(bookId)
-            .then(bookById => setBook(bookById))
+            .then(bookById => setBook(bookById));
+
+        getLikesCount();
 
     }, [bookId]);
 
@@ -30,21 +33,19 @@ export default function Details() {
         }
     }
 
-    const likeBtnHandler = async () => {
-        try {
-            // Check if the user has already liked the book
-            if (!book.likes.includes(id)) {
-                // If not, update the likes array and the likes count
-                const updatedBook = await likeBook(bookId, id);
-                setBook(updatedBook);
-            } else {
-                console.log("User already liked the book");
-            }
-        } catch (error) {
-            console.error("Error liking the book:", error);
-        }
-    };
+    const getLikesCount = async () => {
 
+        const likeCounts = await getLikesByBookId(bookId);
+        setLikesCount(likeCounts);
+    }
+
+    const likeBtnHandler = async () => {
+
+        await sendLike(bookId);
+
+        getLikesCount();
+
+    }
 
 
     return (
@@ -71,10 +72,10 @@ export default function Details() {
 
                     {id !== book._ownerId && (
                         <div>
-                            <button className='likeBtn'  onClick={likeBtnHandler}>
+                            <button className='likeBtn' onClick={likeBtnHandler}>
                                 <i className="fas fa-heart"></i>
                             </button>
-                            <span className='likes'>Likes:</span>
+                            <span className='likes'>Likes: {likesCount}</span>
                         </div>
                     )}
 
