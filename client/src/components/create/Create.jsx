@@ -14,6 +14,8 @@ export default function Create() {
 
             // We get an object with all the data from the server, _id included
             const newBook = await createBook(bookData);
+
+            console.log(newBook)
             navigate(Path.Home);
 
         } catch (error) {
