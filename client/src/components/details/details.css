@@ -42,13 +42,13 @@
     margin-bottom: 15px;
 }
 
-.bookDetails p span{
-   font-weight: bold;
+.bookDetails p span {
+    font-weight: bold;
 }
 
 
 .bookDetails .detailsTitle {
-    font-size:26px;
+    font-size: 26px;
 }
 
 .actionBtn {
@@ -76,6 +76,31 @@
     border: none;
     cursor: pointer;
 }
+
+.like {
+    display: flex;
+    align-items: center;
+}
+
+.likeBtn {
+    border: none;
+    width: 70px;
+    border-radius: 5px;
+    background-color: #f4f4f4;
+    color: #12876f;
+    font-size: 30px;
+}
+
+.likes {
+    font-size: 18px;
+    font-weight: 400;
+}
+
+
+.likeBtn:hover {
+    cursor: pointer;
+}
+
 
 /* Responsive layout for smaller screens */
 @media (max-width: 768px) {

@@ -1,18 +1,22 @@
 
 .mainNav {
+    display: flex;
+
     background: #16a085;
-    height: 80px;
+    height: 50px;
     width: 100%;
     position: fixed;
     top: 0; /* Add this line to keep the navbar at the top */
     z-index: 1000;
+    align-items: center;
+    justify-content: space-between;
 }
 
 
 .title {
     color: white;
-    font-size: 35px;
-    line-height: 80px;
+    font-size: 32px;
+    /* line-height: 80px; */
     padding: 0 100px;
     font-weight: bold;
     text-decoration: none;

@@ -27,7 +27,7 @@ export default function Create() {
         img: '',
         year: '',
         type: '',
-        description: ''
+        description: '',
     });
 
     return (
