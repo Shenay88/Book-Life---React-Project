@@ -28,33 +28,33 @@ This will start the development server at http://localhost:5173/.
 
 Endpoints
 
-Home: http://localhost:5173/
+Home: /
 
-Catalog: http://localhost:5173/catalog
+Catalog: /catalog
 
-Login: http://localhost:5173/login
+Login: /login
 
-Register: http://localhost:5173/register
+Register: /register
 
-Logout: http://localhost:5173/logout
+Logout: /logout
 
-Add Book: http://localhost:5173/addBook
+Add Book: /addBook
 
-Book Details: http://localhost:5173/books/details/:bookId
+Book Details: /books/details/:bookId
 
-Edit Book: http://localhost:5173/books/edit/:bookId
+Edit Book: /books/edit/:bookId
 
 API Endpoints
 
-User Operations: http://localhost:5173/users
+User Operations: /users
 
 Login, Register, Logout
 
-Book Operations: http://localhost:5173/data/books
+Book Operations: /data/books
 
 Add Book, Book Details, Edit Book
 
-Likes: http://localhost:5173/data/likes
+Likes: /data/likes
 
 Likes functionality
 
